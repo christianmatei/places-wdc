@@ -74,9 +74,13 @@
 
 				//Places API returns up to 20 results at a time. We call below method to get the next batch of results (if available)
 				if (pagination.hasNextPage){
+					tableau.log("going for next page");
 					pagination.nextPage();}
+				else {
+					tableau.log("No next page - quitting now");
+					doneCallback();
+				}
 			}
-			doneCallback();
 		}
 	 };
 
